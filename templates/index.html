@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission To Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Latest Mars News</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h4>{{mars_dict.news_title}}</h4>
+        <p>{{mars_dict.news_p}}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Featured Mars Image</h2>
+        <img src="{{mars_dict.featured_image_url}}" alt="Features Mars Image">
+      </div>
+      <div class="col-md-4">
+        <h2>Mars Facts</h2>
+        {{mars_dict.fact_table|safe}}
+      </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row">
+      <div class="text-center">
+        <h2>Mars Hemisphere</h2>
+      </div>
+    </div>
+    
+    <div class="row">
+
+      {% for x in mars_dict.hemisphere_images %}
+        
+      <div class="col-md-3">
+        <div class="card boarder-secondary mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <img width = "250px" height="250px" src="{{x.img_url}}">
+            <h3 class="card-title">{{x.title}}</h3>
+          </div>
+        </div>
+      </div>
+  
+      {% endfor %}
+  
+    </div>
+  </div>
+
+</body>
+
+</html>
+
