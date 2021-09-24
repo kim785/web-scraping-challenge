@@ -59,7 +59,7 @@ def scrape():
     results_hemi = soup_hemi.find_all('h3')
     results_tag = soup_hemi.find_all('div', class_="description")
 
-    hemisphere_image_urls = {}
+    hemisphere_image_urls = []
 
     for x in range(4):
     
